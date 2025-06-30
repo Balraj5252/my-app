@@ -1,12 +1,13 @@
 // import SettingsIcon from '@material-ui/icons/Settings';
 // import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 // import BlockIcon from '@material-ui/icons/Block';
+import { BsFiletypeXlsx } from "react-icons/bs";
 
 export const dataProd =[
     {
         id: Math.random(),
         name: "Manufactured Parts",
-        // icon: <SettingsIcon></SettingsIcon>,
+        icon: <BsFiletypeXlsx />,
         number: 235,
         link: "/"
     },
