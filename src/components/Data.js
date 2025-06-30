@@ -8,13 +8,15 @@ export const dataProd =[
         name: "Manufactured Parts",
         // icon: <SettingsIcon></SettingsIcon>,
         number: 235,
+        link: "/"
     },
 
     {
         id: Math.random(),
         name: "Quality approved Parts",
         // icon: <ThumbUpIcon></ThumbUpIcon>,
-        number: 20
+        number: 20,
+        link: "/home"
     },
 
     {
@@ -22,7 +24,7 @@ export const dataProd =[
         name: "Defective Parts",
         // icon: <BlockIcon></BlockIcon>,
         number: 3,
-
+        link: ""
     },
 
 

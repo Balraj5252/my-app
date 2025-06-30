@@ -11,7 +11,6 @@ const Productiondata = ({data}) => {
     return (
         <div className="main">
             {data.map(item=>(
-
                 <ProductionCards info={item}/>
             ))}
             <div className="operators">

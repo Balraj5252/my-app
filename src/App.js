@@ -3,24 +3,21 @@ import './App.css';
 import React from 'react';
 import Sidebar from './components/sidebar/Sidebar';
 import Search from './components/navbar/Search';
-import Productiondata from './components/prod/Productiondata';
-import {useState} from 'react'
-import {dataProd} from './components/Data'
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Notifications from './components/sidebar/Notifications';
+import HomePage from "./components/homePage/HomePage";
 
 
 
 function App() {
-    const [data, setData] = useState(dataProd);
     return (
         <div className="App">
             <BrowserRouter>
                 <Sidebar/>
                 <Search/>
-                <Productiondata data={data}/>
                 <Routes>
-                    <Route exact path='/' element={<App/>} />
+                    <Route exact path='/' element={<HomePage />} />
+                    <Route path='/home' element={<HomePage />} />
                     <Route path="/Notifications" element={Notifications}/>
                 </Routes>
             </BrowserRouter>

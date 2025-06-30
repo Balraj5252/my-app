@@ -1,6 +1,7 @@
 //import useState hook to create menu collapse state
 import React, { useState } from "react";
 import {Link} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 //import react pro sidebar components
 import {
@@ -25,11 +26,12 @@ import AddOperator from "./AddOperators";
 
 
 const Sidebar = () => {
-
+    const navigate = useNavigate();
     //create initial menuCollapse state using useState hook
-    const [menuCollapse] = useState(false)
-
-    //create a custom function that will change menucollapse state from false to true and true to false
+    const [menuCollapse, setMenuCollapse] = useState(false)
+    const menuIconClick = () => {
+        menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
+    };
     return (
         <>
             <div id="header">
@@ -38,13 +40,15 @@ const Sidebar = () => {
                     <SidebarHeader>
                         <div className="logotext">
                             {/* small and big change using menucollapse state */}
-                            <p>{menuCollapse ? "Logo" : "Big Logo"}</p>
+                            <p><FaList onClick={menuIconClick} />
+                                {menuCollapse ? "" : "    Bal Raj"}</p>
                         </div>
 
                     </SidebarHeader>
                     <SidebarContent>
                         <Menu iconShape="square">
-                            <MenuItem active={true} icon={<FiHome />}>
+                            <MenuItem active={true} icon={<FiHome />}
+                                      onClick={() => navigate('/home')}>
                                 Home
                             </MenuItem>
                             <MenuItem active={true} icon={<FaList />}>Lists</MenuItem>
