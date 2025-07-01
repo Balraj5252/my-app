@@ -1,32 +1,44 @@
 import React, { useState } from 'react';
-import Form from 'react-bootstrap/Form';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Button from 'react-bootstrap/Button';
-import TableView from "../../commons/TableView";
-const Filters = (props) => {
+import PieChart from "../../commons/PieChart";
+import {chartColors} from "../../commons/common";
+const XlsxPieView = (props) => {
     const [headers] = useState(props.excelData != null && props.excelData.length > 0 ? Object.keys(props.excelData[0]) : null);
     const [selectedHeader, setSelectedHeader] = useState(headers != null && headers.length > 0 ? headers[0] : null);
-    const [inputValue, setInputValue] = useState("");
     const [filterData, setFilterData] = useState([]);
+
 
     const handleSelect = (event) => {
         setSelectedHeader(event);
     }
-    const onChange = (event) => {
-        setInputValue(event.target.value);
-    }
 
     const onClickFilterButton = () => {
-        const value = props.excelData[0][selectedHeader];
-        const dataType = typeof value;
-        if (dataType === "number") {
-            const num = Number(inputValue)
-            setFilterData(props.excelData.filter((row) => row[selectedHeader] === num));
-        } else {
-            setFilterData(props.excelData.filter((row) => row[selectedHeader] === inputValue));
+        const label = []
+        const pieData = new Map();
+        const data = {};
+        for (let i = 0; i < props.excelData.length; i++) {
+            let currentString = props.excelData[i][selectedHeader];
+            if (pieData.has(currentString)) {
+                pieData.set(currentString, pieData.get(currentString) + 1);
+            } else {
+                label.push(currentString);
+                pieData.set(currentString, 1);
+            }
         }
+        data.labels = label;
+        const datavalues = [];
+        label.map(l => datavalues.push(pieData.get(l)));
+        data.datasets = [
+            {
+                label: selectedHeader,
+                data: datavalues,
+                backgroundColor: chartColors,
+            }
+        ]
+        setFilterData(data);
     }
 
     return (
@@ -44,15 +56,13 @@ const Filters = (props) => {
                                 <Dropdown.Item eventKey={header} >{header}</Dropdown.Item>
                             ))}
                         </DropdownButton>
-                        <Form.Control aria-label="Text input with dropdown button" onChange={onChange} />
-                        <Button variant="primary" onClick={onClickFilterButton}>Search</Button>
+                        <Button variant="primary" onClick={onClickFilterButton}>Group By</Button>
                     </InputGroup>
-
-                    {filterData.length > 0 ? <TableView data = {filterData} /> : ""}
+                    {filterData != null ? <PieChart data = {filterData} /> : ""}
                 </>
                 : <>No Data</>}
         </div>
     );
 }
 
-export default Filters;
+export default XlsxPieView;

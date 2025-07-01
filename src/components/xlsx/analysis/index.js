@@ -8,6 +8,7 @@ import ExcelView from "./ExcelView";
 import Filters from "./Filters";
 import Navbar from 'react-bootstrap/Navbar';
 import * as XLSX from 'xlsx';
+import XlsxPieView from "./XlsxPieView";
 const Xlsx = () => {
     const [selectedFile, setSelectedFile] = useState(null);
     const [fileUploaded, setFileUploaded] = useState(false);
@@ -74,6 +75,9 @@ const Xlsx = () => {
                             </Tab>
                             <Tab eventKey="filter" title="Filter Search">
                                 <Filters excelData={excelData} />
+                            </Tab>
+                            <Tab eventKey="pie" title="Pie Chart">
+                                <XlsxPieView excelData={excelData} />
                             </Tab>
                         </Tabs>
                     </div> : ""}

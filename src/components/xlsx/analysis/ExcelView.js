@@ -1,4 +1,4 @@
-import TableView from "./TableView";
+import TableView from "../../commons/TableView";
 
 const ExcelView = (props) => {
     return (
