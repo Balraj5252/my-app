@@ -2,29 +2,27 @@
 // import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 // import BlockIcon from '@material-ui/icons/Block';
 import { BsFiletypeXlsx } from "react-icons/bs";
-
+import Xlsx from "../images/background/xlsx.jpg";
 export const dataProd =[
     {
-        id: Math.random(),
-        name: "Manufactured Parts",
+        id: 1,
+        name: "XLSX",
         icon: <BsFiletypeXlsx />,
-        number: 235,
-        link: "/"
+        bgImage: Xlsx,
+        link: "/xlsx"
     },
 
     {
-        id: Math.random(),
-        name: "Quality approved Parts",
+        id: 2,
+        name: "Base Apps",
         // icon: <ThumbUpIcon></ThumbUpIcon>,
-        number: 20,
         link: "/home"
     },
 
     {
-        id: Math.random(),
-        name: "Defective Parts",
+        id: 3,
+        name: "Product Purchase",
         // icon: <BlockIcon></BlockIcon>,
-        number: 3,
         link: ""
     },
 
