@@ -21,8 +21,11 @@ const PieChart = (props) => {
     };
     return (
         <div style={{ width: '400px', height: '400px' }}>
-            <h3 className="mt-4">Pie Chart Example</h3>
+            {props.data != null && props.data.length > 0 ?
+                <div>
+            <h3 className="mt-4">Pie Chart </h3>
             <Pie data={props.data} options={options} width={400} height={300} />
+                </div>:" "}
         </div>
     );
 };
