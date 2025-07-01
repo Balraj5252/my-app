@@ -8,8 +8,7 @@ import {chartColors} from "../../commons/common";
 const XlsxPieView = (props) => {
     const [headers] = useState(props.excelData != null && props.excelData.length > 0 ? Object.keys(props.excelData[0]) : null);
     const [selectedHeader, setSelectedHeader] = useState(headers != null && headers.length > 0 ? headers[0] : null);
-    const [filterData, setFilterData] = useState([]);
-
+    const [filterData, setFilterData] = useState(null);
 
     const handleSelect = (event) => {
         setSelectedHeader(event);
