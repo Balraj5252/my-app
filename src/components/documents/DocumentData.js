@@ -19,7 +19,7 @@ export const dataProd =[
         name: "Compare",
         // icon: <ThumbUpIcon></ThumbUpIcon>,
         bgImage: Compare,
-        "note": "comparing two xlsx",
+        "note": "comparing two Documents",
         link: "/my-app/xlsx/compare"
     },
 

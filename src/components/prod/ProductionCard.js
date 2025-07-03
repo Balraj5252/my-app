@@ -20,10 +20,10 @@ const ProductionCards = ({info}) => {
                     <Card.Subtitle>{info.name}</Card.Subtitle>
                     {/*<Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>*/}
                     <Card.Text>
-                        {info.number}
+                        {info.note}
                     </Card.Text>
                 </Card.Body>
-                <Card.Footer className="text-muted">2 days ago</Card.Footer>
+                {/*<Card.Footer className="text-muted">2 days ago</Card.Footer>*/}
             </Card>
             {/*<Card variant="outlined" onClick={() => navigate(info.link)}>*/}
             {/*    <CardMedia*/}

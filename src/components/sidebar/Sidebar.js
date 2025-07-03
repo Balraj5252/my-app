@@ -48,7 +48,7 @@ const Sidebar = () => {
                     <SidebarContent>
                         <Menu iconShape="square">
                             <MenuItem active={true} icon={<FiHome />}
-                                      onClick={() => navigate('/home')}>
+                                      onClick={() => navigate('/my-app/home')}>
                                 Home
                             </MenuItem>
                             <MenuItem active={true} icon={<FaList />}>Lists</MenuItem>

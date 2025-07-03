@@ -23,7 +23,6 @@ const Xlsx = () => {
             const sheetName = workbook.SheetNames[0];
             const sheet = workbook.Sheets[sheetName];
             const jsonData = XLSX.utils.sheet_to_json(sheet);
-            console.log(jsonData)
             setExcelData(jsonData);
         };
         reader.readAsArrayBuffer(event.target.files[0]);
@@ -31,10 +30,10 @@ const Xlsx = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        const name = selectedFile.name.toString();
         if (selectedFile) {
-            if (selectedFile.type === "application/vnd.ms-excel") {
+            if (name.substring(name.length - 4, name.length).includes("xls")) {
                 setFileUploaded(true);
-                console.log(excelData);
             } else {
                 alert(`File "${selectedFile.name}" selected for upload is not in XLSX formate.`);
             }

@@ -3,27 +3,30 @@
 // import BlockIcon from '@material-ui/icons/Block';
 import { BsFiletypeXlsx } from "react-icons/bs";
 import Xlsx from "../images/background/xlsx.jpg";
+import Document from "../images/background/document.png"
+
 export const dataProd =[
     {
         id: 1,
         name: "XLSX",
         icon: <BsFiletypeXlsx />,
         bgImage: Xlsx,
-        link: "/xlsx"
+        link: "/my-app/xlsx"
     },
 
     {
         id: 2,
-        name: "Base Apps",
-        // icon: <ThumbUpIcon></ThumbUpIcon>,
-        link: "/home"
+        name: "Document",
+        icon: <BsFiletypeXlsx />,
+        bgImage: Document,
+        link: "/my-app/doc"
     },
 
     {
         id: 3,
         name: "Product Purchase",
         // icon: <BlockIcon></BlockIcon>,
-        link: ""
+        link: "/my-app"
     },
 
 

@@ -6,7 +6,8 @@ import Search from './components/navbar/Search';
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Notifications from './components/sidebar/Notifications';
 import HomePage from "./components/homePage/HomePage";
-import Xlsx from "./components/xlsx/index"
+import Xlsx from "./components/xlsx/index";
+import Doc from "./components/documents/index";
 import Analysis from "./components/xlsx/analysis";
 
 function App() {
@@ -16,12 +17,13 @@ function App() {
                 <Sidebar/>
                 <Search/>
                 <Routes>
-                    <Route exact path='/' element={<HomePage />} />
-                    <Route path='/home' element={<HomePage />} />
-                    <Route path='/xlsx' element={<Xlsx />} />
-                    <Route path='/xlsx/analysis' element={<Analysis />} />
-                    <Route path='/xlsx/compare' element={<Analysis />} />
-                    <Route path="/Notifications" element={Notifications}/>
+                    <Route exact path='/my-app' element={<HomePage />} />
+                    <Route path='/my-app/home' element={<HomePage />} />
+                    <Route path='/my-app/xlsx' element={<Xlsx />} />
+                    <Route path='/my-app/doc' element={<Doc />} />
+                    <Route path='/my-app/xlsx/analysis' element={<Analysis />} />
+                    <Route path='/my-app/xlsx/compare' element={<Analysis />} />
+                    <Route path="/my-app/Notifications" element={Notifications}/>
                 </Routes>
             </BrowserRouter>
         </div>
