@@ -1,0 +1,18 @@
+[
+  {
+    "id":  "1",
+    "title" : "Weather",
+    "description": "fetch a weather report",
+    "atPage": "/weather",
+    "priority": "high",
+    "textColor": "text-danger"
+  },
+  {
+    "atPage": "contact me",
+    "description": "put a form to take the message directly",
+    "id": "2",
+    "priority": "medium",
+    "title": "Contact Message",
+    "textColor": "text-secondary"
+  }
+]

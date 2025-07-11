@@ -4,6 +4,7 @@
 import { BsFiletypeXlsx } from "react-icons/bs";
 import Xlsx from "../images/background/xlsx.jpg";
 import Document from "../images/background/document.png"
+import Weather from "../images/background/weather.png"
 
 export const dataProd =[
     {
@@ -24,9 +25,10 @@ export const dataProd =[
 
     {
         id: 3,
-        name: "Product Purchase",
-        // icon: <BlockIcon></BlockIcon>,
-        link: "/my-app"
+        name: "Weather",
+        icon: <BsFiletypeXlsx />,
+        bgImage: Weather,
+        link: "/my-app/weather"
     },
 
 
