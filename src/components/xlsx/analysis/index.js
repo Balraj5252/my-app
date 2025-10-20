@@ -9,6 +9,7 @@ import Filters from "./Filters";
 import Navbar from 'react-bootstrap/Navbar';
 import * as XLSX from 'xlsx';
 import XlsxPieView from "./XlsxPieView";
+import file from "../file_example_XLSX_100.xlsx";
 const Xlsx = () => {
     const [selectedFile, setSelectedFile] = useState(null);
     const [fileUploaded, setFileUploaded] = useState(false);
@@ -16,6 +17,7 @@ const Xlsx = () => {
     const [tab, setTab] = useState('table');
     const handleFileChange = (event) => {
         setSelectedFile(event.target.files[0]);
+        console.log(event.target.files[0])
         const reader = new FileReader();
         reader.onload = (e) => {
             const data = new Uint8Array(e.target.result);
@@ -28,8 +30,29 @@ const Xlsx = () => {
         reader.readAsArrayBuffer(event.target.files[0]);
     };
 
+    const onSelectDefaultXlsx = async (e) => {
+        const response = await fetch('../file_example_XLSX_100.xlsx');
+        const blob = new Blob([response],  {type:'data:application/vnd.ms-excel;base64'})
+        blob.name = "sample.xlsx"
+        setSelectedFile(blob);
+        console.log('Excel Data:', blob);
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const data = new Uint8Array(e.target.result);
+            const workbook = XLSX.read(data, {type: 'array'});
+            const sheetName = workbook.SheetNames[0];
+            const sheet = workbook.Sheets[sheetName];
+            const jsonData = XLSX.utils.sheet_to_json(sheet);
+            setExcelData(jsonData);
+            console.log(jsonData);
+        };
+        reader.readAsArrayBuffer(blob);
+        handleSubmit(e);
+    }
+
     const handleSubmit = (event) => {
         event.preventDefault();
+        console.log(selectedFile);
         const name = selectedFile.name.toString();
         if (selectedFile) {
             if (name.substring(name.length - 4, name.length).includes("xls")) {
@@ -47,6 +70,9 @@ const Xlsx = () => {
         <div className="App">
             <div className="main" style={{backgroundColor: "white"}}>
                     <>
+                        {/*<Navbar className="bg-body-tertiary justify-content-end" style={{backgroundColor: "inherit"}}>*/}
+                        {/*        <Button type="submit" onClick={onSelectDefaultXlsx}>Sample Xlsx</Button>*/}
+                        {/*</Navbar>*/}
                         <Navbar className="bg-body-tertiary justify-content-between" style={{backgroundColor: "inherit"}}>
                             <Form inline>
                                 <Form.Group controlId="formFile" className="mb-3">

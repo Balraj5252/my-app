@@ -53,8 +53,8 @@ const Sidebar = () => {
                             </MenuItem>
                             <MenuItem active={true} icon={<FaList />}
                                       onClick={() => navigate('/my-app/todo')}>To Do List</MenuItem>
-                            <MenuItem active={true} icon={<RiPencilLine />}><span><Link to={/Notifications/}>Notifications</Link></span></MenuItem>
-                            <MenuItem active={true} icon={<FaList/>}><span ><AddOperator/></span></MenuItem>
+                            {/*<MenuItem active={true} icon={<RiPencilLine />}><span><Link to={/Notifications/}>Notifications</Link></span></MenuItem>*/}
+                            {/*<MenuItem active={true} icon={<FaList/>}><span ><AddOperator/></span></MenuItem>*/}
                         </Menu>
                     </SidebarContent>
                     <SidebarFooter>
